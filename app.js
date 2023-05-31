@@ -35,6 +35,17 @@ function displayBook(book) {
         readDiv.textContent = "Not Read!";
     }
     
+    let readButton = document.createElement('button');
+    readButton.classList.add('read-button');
+    readButton.textContent= 'Read?';
+    readButton.setAttribute('data-title', book.title);
+    readButton.addEventListener('click', () => {
+        let book = myLib.find(book => book.title == readButton.getAttribute('data-title'));
+            book.read = 'read';
+            loopBooks(myLib);
+        
+    })
+
 
     let cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
@@ -59,6 +70,8 @@ function displayBook(book) {
     cardBody.appendChild(pagesDiv);
     cardBody.appendChild(readDiv);
     cardBody.appendChild(removeButton);
+    
+    if(!book.read) {cardBody.appendChild(readButton);}
 
     cardHeader.appendChild(titleDiv);
 

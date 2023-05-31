@@ -20,7 +20,7 @@ h1 {
     color: white;
 }
 
-button:not(.remove-button) {
+button:not(.remove-button, .read-button)  {
     background-color: paleturquoise;
     border-radius: 30px;
     padding: 1em 2em;
